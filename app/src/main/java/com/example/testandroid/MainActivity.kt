@@ -1,6 +1,7 @@
 package com.example.testandroid
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -15,9 +16,11 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private val LIFECYCLE = "Lifecycle"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(LIFECYCLE, "onCreate")
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -33,6 +36,34 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null).show()
         }
     }
+
+    //region Ciclo de vida
+    override fun onStart() {
+        super.onStart()
+        Log.d(LIFECYCLE, "onStart")
+    }
+    override fun onResume() {
+        super.onResume()
+        Log.d(LIFECYCLE, "onResume")
+    }
+    override fun onPause() {
+        super.onPause()
+        Log.d(LIFECYCLE, "onPause")
+    }
+    override fun onStop() {
+        super.onStop()
+        Log.d(LIFECYCLE, "onStop")
+    }
+    override fun onRestart() {
+        super.onRestart()
+        Log.d(LIFECYCLE, "onRestart")
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(LIFECYCLE, "onDestroy")
+    }
+
+    //endregion
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
