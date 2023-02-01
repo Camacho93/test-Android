@@ -31,7 +31,7 @@ class FirstFragment : Fragment() {
 
         binding.btnIr.setOnClickListener {
             requireActivity().supportFragmentManager.commit {
-                add(R.id.fragment_container_view, SegundoFragment())
+                replace(R.id.fragment_container_view, SegundoFragment.newInstance("Gerardo", "Camacho"))
                 addToBackStack(TAG)
             }
         }
