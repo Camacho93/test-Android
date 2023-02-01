@@ -23,18 +23,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
-
-/*        supportFragmentManager.commit {
+        supportFragmentManager.commit {
             //Para que las animaciones se ejecuten de forma correcta
             setReorderingAllowed(true)
             add(R.id.fragment_container_view, FirstFragment())
-        }*/
-
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
         }
     }
 
