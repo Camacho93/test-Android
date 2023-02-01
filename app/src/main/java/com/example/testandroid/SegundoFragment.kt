@@ -22,8 +22,10 @@ class SegundoFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        name = requireArguments().getString(NAME)
-        lastName = requireArguments().getString(LASTNAME)
+        arguments?.let {
+            name = it.getString(NAME)
+            lastName = it.getString(LASTNAME)
+        }
     }
 
     override fun onCreateView(
@@ -46,8 +48,8 @@ class SegundoFragment : Fragment() {
     }
 
     companion object {
-        private const val NAME = "NAME"
-        private const val LASTNAME = "LASTNAME"
+        public const val NAME = "NAME"
+        public const val LASTNAME = "LASTNAME"
 
         @JvmStatic
         fun newInstance(name: String, lastName: String) =

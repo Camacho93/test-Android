@@ -23,11 +23,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportFragmentManager.commit {
-            //Para que las animaciones se ejecuten de forma correcta
-            setReorderingAllowed(true)
-            add(R.id.fragment_container_view, FirstFragment())
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

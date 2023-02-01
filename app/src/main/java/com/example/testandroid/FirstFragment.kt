@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.commit
+import androidx.navigation.fragment.findNavController
 import com.example.testandroid.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {
@@ -30,10 +32,8 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnIr.setOnClickListener {
-            requireActivity().supportFragmentManager.commit {
-                replace(R.id.fragment_container_view, SegundoFragment.newInstance("Gerardo", "Camacho"))
-                addToBackStack(TAG)
-            }
+            findNavController().navigate(R.id.action_firstFragment_to_segundoFragment,
+                bundleOf(SegundoFragment.NAME to "Gerardo", SegundoFragment.LASTNAME to "Camacho"))
         }
     }
 
