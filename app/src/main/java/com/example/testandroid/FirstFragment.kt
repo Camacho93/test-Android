@@ -9,6 +9,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.commit
 import androidx.navigation.fragment.findNavController
 import com.example.testandroid.databinding.FragmentFirstBinding
+import com.example.testandroid.model.Student
 
 class FirstFragment : Fragment() {
 
@@ -32,8 +33,9 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnIr.setOnClickListener {
-            findNavController().navigate(R.id.action_firstFragment_to_segundoFragment,
-                bundleOf(SegundoFragment.NAME to "Gerardo", SegundoFragment.LASTNAME to "Camacho"))
+            val student = Student("Gerardo", "Camacho")
+            val action  = FirstFragmentDirections.actionFirstFragmentToSegundoFragment(student)
+            findNavController().navigate(action)
         }
     }
 

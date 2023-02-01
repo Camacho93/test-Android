@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.navigation.fragment.navArgs
 import com.example.testandroid.databinding.FragmentSegundoBinding
 
 
@@ -19,13 +20,12 @@ class SegundoFragment : Fragment() {
 
     private var name: String ? = ""
     private var lastName: String ? = ""
+    private val args: SegundoFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            name = it.getString(NAME)
-            lastName = it.getString(LASTNAME)
-        }
+            name = args.student.name
+            lastName = args.student.lastName
     }
 
     override fun onCreateView(

@@ -18,5 +18,9 @@
         android:id="@+id/segundoFragment"
         android:name="com.example.testandroid.SegundoFragment"
         android:label="fragment_segundo"
-        tools:layout="@layout/fragment_segundo" />
+        tools:layout="@layout/fragment_segundo" >
+        <argument
+            android:name="student"
+            app:argType="com.example.testandroid.model.Student" />
+    </fragment>
 </navigation>
